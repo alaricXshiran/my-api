@@ -4,11 +4,11 @@ const app = express();
 
 //security middleware
 app.use((req, res, next) => {
-  const apiKey = req.headers["unknown api key"];
+  const apiKey = req.headers["api-key"];
   if (apiKey === process.env.API_KEY) {
     next();
   } else {
-    res.status(403).json({ error: "Forbidden: Invalid API Key" });
+    res.status(403).json({ error: "Invalid API Key" });
   }
 });
 
